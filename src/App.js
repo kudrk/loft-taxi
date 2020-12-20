@@ -5,14 +5,6 @@ import { Map } from './Map';
 import { Profile } from './Profile';
 import './App.css';
 
-
-const PAGES = {   //компоненты страниц
-  login: <Login />,
-  registration: <Registration />,
-  map: <Map />,
-  profile: <Profile />,
-};
-
 class App extends React.Component {
   state = { currentPage: "login" }; //state, в котром содержится текущая станица (currentPage начальное значение)
 
@@ -65,7 +57,10 @@ class App extends React.Component {
         </nav>
       </header>
       <main data-testid="container">
-        <section>{PAGES[this.state.currentPage]}</section>
+        {this.state.currentPage === 'login' && <Login navigate={this.navigateTo} />}
+        {this.state.currentPage === 'profile' && <Profile />}
+        {this.state.currentPage === 'map' && <Map />}
+        {this.state.currentPage === 'registration' && <Registration navigate={this.navigateTo} />}
       </main>
     </>;
   }

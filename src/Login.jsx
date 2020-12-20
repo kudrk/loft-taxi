@@ -7,8 +7,8 @@ export class Login extends React.Component {
   onClick = event => {
     event.preventDefault();
     // Запрещаем перезагрузку страницы
-    console.log(event.type);
-    // this.navigateTo("map");
+    this.props.navigate('map');
+    //Переход на страницу с картой
   }
 
 
