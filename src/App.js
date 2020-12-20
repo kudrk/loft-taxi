@@ -1,25 +1,74 @@
-import logo from './logo.svg';
+import React from "react";
+import { Login } from './Login';
+import { Registration } from './Registration';
+import { Map } from './Map';
+import { Profile } from './Profile';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+const PAGES = {   //компоненты страниц
+  login: <Login />,
+  registration: <Registration />,
+  map: <Map />,
+  profile: <Profile />,
+};
+
+class App extends React.Component {
+  state = { currentPage: "login" }; //state, в котром содержится текущая станица (currentPage начальное значение)
+
+  navigateTo = (page) => {
+    this.setState({ currentPage: page }); //обновляем currentPage на новое значение страницы
+  }; // метод для изменения текущей страницы
+
+  render() {
+    return <>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <a
+                onClick={() => {
+                  this.navigateTo("login");
+                }}
+              >
+                Login
+                </a>
+            </li>
+            <li>
+              <a
+                onClick={() => {
+                  this.navigateTo("registration");
+                }}
+              >
+                Registration
+                </a>
+            </li>
+            <li>
+              <a
+                onClick={() => {
+                  this.navigateTo("map");
+                }}
+              >
+                Map
+                </a>
+            </li>
+            <li>
+              <a
+                onClick={() => {
+                  this.navigateTo("profile");
+                }}
+              >
+                Profile
+                </a>
+            </li>
+          </ul>
+        </nav>
       </header>
-    </div>
-  );
+      <main data-testid="container">
+        <section>{PAGES[this.state.currentPage]}</section>
+      </main>
+    </>;
+  }
 }
 
 export default App;
