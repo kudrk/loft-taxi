@@ -1,6 +1,6 @@
 import React from "react";
 import { withAuth } from "./AuthContext";
-import {PropTypes} from 'prop-types';
+import { PropTypes } from 'prop-types';
 
 export class Login extends React.Component {
 
@@ -10,7 +10,7 @@ export class Login extends React.Component {
     this.props.logIn(email.value, password.value);
   };
 
-  onClick = event => {
+  Registr = event => {
     event.preventDefault();
     this.props.navigate('registration');
   };
@@ -24,7 +24,7 @@ export class Login extends React.Component {
           </div>
         ) : (
             <div>
-              <p>Новый пользователь?<a onClick={this.onClick}>Зарегистрируйтесь</a></p>
+              <p>Новый пользователь?<a onClick={this.Registr}>Зарегистрируйтесь</a></p>
               <form onSubmit={this.authenticate}>
                 <label htmlFor="email"></label>
                 <input id="email" type="email" name="email" size="28" placeholder="Имя пользователя*" />

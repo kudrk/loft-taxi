@@ -6,8 +6,8 @@ export class Registration extends React.Component {
   onClick = event => {
     event.preventDefault();
     // Запрещаем перезагрузку страницы
-    this.props.navigate('map');
-    //Переход на страницу с картой
+    this.props.navigate('profile');
+    //Переход на страницу регистрации
   }
 
   render() {

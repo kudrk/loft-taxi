@@ -7,9 +7,9 @@ export const AuthProvider = ({ children }) => {
 
   const logIn = (email, password) => {
     if (email === "valid@email.com" && password === "correctpassword") {
-      return;
+      setIsLoggedIn(true);
     }
-    setIsLoggedIn(true);
+    return;
   };
 
   const logOut = () => {

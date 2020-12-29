@@ -1,14 +1,6 @@
 import React from "react";
 
-
-export class Menu extends React.Component { //<Menu />
-
-  onClick = event => {
-    event.preventDefault();
-    // Запрещаем перезагрузку страницы
-    this.props.navigate('map');
-    //Переход на страницу 
-  }
+export class Menu extends React.Component {
 
   render() {
     return (
@@ -16,9 +8,9 @@ export class Menu extends React.Component { //<Menu />
         <ul>
           <li>
             <a
-             onClick={() => {
-              this.navigateTo("login");
-            }}
+              onClick={() => {
+                this.props.navigate("login");
+              }}
             >
               Login
       </a>
@@ -26,7 +18,7 @@ export class Menu extends React.Component { //<Menu />
           <li>
             <a
               onClick={() => {
-                this.navigateTo("registration");
+                this.props.navigate("registration");
               }}
             >
               Registration
@@ -35,7 +27,7 @@ export class Menu extends React.Component { //<Menu />
           <li>
             <a
               onClick={() => {
-                this.navigateTo("map");
+                this.props.navigate("map");
               }}
             >
               Map
@@ -44,7 +36,7 @@ export class Menu extends React.Component { //<Menu />
           <li>
             <a
               onClick={() => {
-                this.navigateTo("profile");
+                this.props.navigate("profile");
               }}
             >
               Profile
