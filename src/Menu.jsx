@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export class Menu extends React.Component {
 
@@ -7,40 +8,16 @@ export class Menu extends React.Component {
       <nav>
         <ul>
           <li>
-            <a
-              onClick={() => {
-                this.props.navigate("login");
-              }}
-            >
-              Login
-      </a>
+            <Link to='/'>Login</Link>
           </li>
           <li>
-            <a
-              onClick={() => {
-                this.props.navigate("registration");
-              }}
-            >
-              Registration
-      </a>
+            <Link to='/registration'>Registration</Link>
           </li>
           <li>
-            <a
-              onClick={() => {
-                this.props.navigate("map");
-              }}
-            >
-              Map
-      </a>
+            <Link to="/map">Map</Link>
           </li>
           <li>
-            <a
-              onClick={() => {
-                this.props.navigate("profile");
-              }}
-            >
-              Profile
-      </a>
+            <Link to="/profile">Profile</Link>
           </li>
         </ul>
       </nav>
