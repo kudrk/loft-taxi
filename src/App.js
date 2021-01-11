@@ -4,14 +4,16 @@ import { Map } from './Map';
 import { ProfileWithConnect } from './Profile';
 import { Menu } from './Menu';
 import { Registration } from './Registration';
-import { connect } from 'react-redux';
 import {
   Switch,
   Route
 } from "react-router-dom";
 import { PrivateRoute } from "./PrivateRoute";
-import PropTypes from 'prop-types';
 import './App.css';
+import { Logo, MCIcon } from 'loft-taxi-mui-theme';
+
+
+
 
 class App extends React.Component {
 
@@ -30,13 +32,12 @@ class App extends React.Component {
           </Switch>
         </section>
       </main>
+      <Logo />
+      <MCIcon />
     </>;
   }
 }
 
-App.propTypes = {
-  isLoggedIn: PropTypes.bool
-};
 
 
-export default connect((state) => ({ isLoggedIn: state.auth.isLoggedIn }))(App);
+export default App;

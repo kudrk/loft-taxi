@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { PropTypes } from 'prop-types';
 import { authenticate } from './actions';
 
 
@@ -37,12 +36,6 @@ export class Login extends React.Component {
     );
   }
 }
-
-Login.propTypes = {
-  isLoggedIn: PropTypes.bool,
-  logIn: PropTypes.func,
-  navigate: PropTypes.func,
-};
 
 export const LoginWithConnect = connect(
   (state) => ({ isLoggedIn: state.auth.isLoggedIn }),
