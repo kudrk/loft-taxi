@@ -1,14 +1,7 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 export class Registration extends React.Component {
-
-  onClick = event => {
-    event.preventDefault();
-    // Запрещаем перезагрузку страницы
-    this.props.navigate('profile');
-    //Переход на страницу регистрации
-  }
 
   render() {
     return (
@@ -16,7 +9,7 @@ export class Registration extends React.Component {
         <div>
           <div>
             <h1>Регистрация</h1>
-            <p>Уже зарегистрирован?<a>Войти</a></p>
+            <p>Уже зарегистрирован?<Link to="/profile">Войти</Link></p>
           </div>
           <label htmlFor="email">Адрес электронной почты</label>
           <input id="email" type="email" name="email" size="28" />
@@ -30,7 +23,7 @@ export class Registration extends React.Component {
           <label htmlFor="password"></label>
           <input id="password" type="password" name="password" size="28" placeholder="Пароль*" />
 
-          <input onClick={this.onClick} type="submit" value="Зарегистрироваться" />
+          <input type="submit" value="Зарегистрироваться" />
         </div>
       </form>
     );
