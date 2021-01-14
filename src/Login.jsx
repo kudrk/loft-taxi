@@ -2,6 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { authenticate } from './actions';
+import { Paper, Box, Button, Typography, TextField, Container } from '@material-ui/core';
+import { Logo, MCIcon } from 'loft-taxi-mui-theme';
+import './Login.css'
 
 
 export class Login extends React.Component {
@@ -12,25 +15,45 @@ export class Login extends React.Component {
     this.props.authenticate(email.value, password.value);
   };
 
+
   render() {
+
     return (
       <>
         {this.props.isLoggedIn ? (
-          <div>
-            <h1>Войти<Link to="/profile">Профиль</Link></h1>
-          </div>
-        ) : (
-            <div>
-              <h1>Войти</h1>
-              <p>Новый пользователь?<Link to="/registration">Зарегистрируйтесь</Link></p>
-              <form onSubmit={this.authenticate}>
-                <label htmlFor="email"></label>
-                <input id="email" type="email" name="email" size="28" placeholder="Имя пользователя*" />
-                <label htmlFor="password"></label>
-                <input id="password" type="password" name="password" size="28" placeholder="Пароль*" />
-                <button type="submit">Войти</button>
-              </form>
+          <Container fixed>
+            <div className='grid'>
+              <div>
+                <Logo />
+              </div>
+              <div>
+                <div>
+                  <Typography variant="title">Войти<Link to="/profile">Профиль</Link></Typography>
+                </div>
+              </div>
             </div>
+          </Container>
+        ) : (
+            <Container fixed>
+              <div className='grid'>
+                <div>
+                  <Logo />
+                </div>
+                <div>
+                  <div className="form-div">
+                    <Typography variant="h4">Войти</Typography>
+                    <Typography variant="body1">Новый пользователь?<Link to="/registration" variant="inherit">Зарегистрируйтесь</Link></Typography>
+                    <form className="form-div_inputs" onSubmit={this.authenticate}>
+                      <label htmlFor="email"></label>
+                      <TextField normal fullWidth multiline style={{ marginBottom: 20 }} id="email" type="email" name="email" placeholder="Имя пользователя*" />
+                      <label htmlFor="password"></label>
+                      <TextField fullWidth id="password" type="password" name="password" placeholder="Пароль*" />
+                      <Button variant="contained" type="submit">Войти</Button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </Container>
           )}
       </>
     );

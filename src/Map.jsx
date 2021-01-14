@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import mapboxgl from 'mapbox-gl';
+import "./Map.css";
+import "./Profile.css";
+import { Menu } from "./Menu";
+import { Logo, MCIcon } from 'loft-taxi-mui-theme';
 
 export class Map extends Component {
   map = null;
@@ -23,9 +27,15 @@ export class Map extends Component {
 
   render() {
     return (
-    <div className="map-wrapper">
-      <div data-testid="map" className="map" ref={this.mapContainer} />
-    </div>
+      <>
+        <header className="header">
+          <Logo/>
+          <Menu />
+        </header>
+        <div className="map-wrapper">
+          <div data-testid="map" className="map" ref={this.mapContainer} />
+        </div>
+      </>
     );
   }
 }

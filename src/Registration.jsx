@@ -1,33 +1,41 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Paper, Box, Button, Typography, TextField, Container } from '@material-ui/core';
+import { Logo, MCIcon } from 'loft-taxi-mui-theme';
+import './Login.css'
 
 export class Registration extends React.Component {
 
   render() {
     return (
-      <form>
-        <div>
+      <Container fixed>
+        <div className='grid'>
           <div>
-            <h1>Регистрация</h1>
-            <p>Уже зарегистрирован?<Link to="/profile">Войти</Link></p>
+            <Logo />
           </div>
-          <label htmlFor="email">Адрес электронной почты</label>
-          <input id="email" type="email" name="email" size="28" />
+          <div>
+            <div className="form-div">
+              <Typography variant="h4">Регистрация</Typography>
+              <Typography variant="body1">Уже зарегистрированы?<Link to="/profile" variant="inherit">Войти</Link></Typography>
+              <form className="form-div_inputs">
+                <label htmlFor="email"></label>
+                <TextField normal fullWidth multiline id="email" type="email" name="email" placeholder="Адрес электронной почты" />
 
-          <label htmlFor="name">Имя</label>
-          <input id="name" type="text" name="name" size="28" />
+                <label htmlFor="name"></label>
+                <TextField normal fullWidth multiline id="name" type="text" name="name" placeholder="Имя*" />
 
-          <label htmlFor="name">Фамилия</label>
-          <input id="surname" type="text" name="surname" size="28" />
+                <label htmlFor="name"></label>
+                <TextField normal fullWidth multiline id="surname" type="text" name="surname" placeholder="Фамилия*" />
 
-          <label htmlFor="password"></label>
-          <input id="password" type="password" name="password" size="28" placeholder="Пароль*" />
+                <label htmlFor="password"></label>
+                <TextField normal fullWidth multiline id="password" type="password" name="password" placeholder="Пароль*" />
 
-          <input type="submit" value="Зарегистрироваться" />
+                <Button variant="contained" type="submit">Зарегистрироваться</Button>
+              </form>
+            </div>
+          </div>
         </div>
-      </form>
+      </Container>
     );
   }
 };
-
-export default Registration;
