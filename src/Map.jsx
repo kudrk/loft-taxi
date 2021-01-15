@@ -4,6 +4,8 @@ import "./Map.css";
 import "./Profile.css";
 import { Menu } from "./Menu";
 import { Logo, MCIcon } from 'loft-taxi-mui-theme';
+import { Paper, Box, Button, Typography, TextField, Container, Card, CardContent } from '@material-ui/core';
+import { Link } from "react-router-dom";
 
 export class Map extends Component {
   map = null;
@@ -29,12 +31,21 @@ export class Map extends Component {
     return (
       <>
         <header className="header">
-          <Logo/>
+          <Logo />
           <Menu />
         </header>
         <div className="map-wrapper">
           <div data-testid="map" className="map" ref={this.mapContainer} />
-        </div>
+          <div className="paper">
+            <Card>
+              <CardContent>
+                <Typography variant="h4" component="h2">Заполните платежные данные</Typography>
+                <Typography variant="body1" component="p">Укажите информацию о банковской карте, чтобы сделать заказ.</Typography>
+                <Button variant="contained"><Link to="/profile">Перейти в профиль</Link></Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div >
       </>
     );
   }

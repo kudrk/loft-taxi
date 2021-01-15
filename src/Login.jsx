@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { authenticate } from './actions';
 import { Paper, Box, Button, Typography, TextField, Container } from '@material-ui/core';
 import { Logo, MCIcon } from 'loft-taxi-mui-theme';
-import './Login.css'
+import './Login.css';
+import { Map } from './Map';
 
 
 export class Login extends React.Component {
@@ -21,18 +22,19 @@ export class Login extends React.Component {
     return (
       <>
         {this.props.isLoggedIn ? (
-          <Container fixed>
-            <div className='grid'>
-              <div>
-                <Logo />
-              </div>
-              <div>
-                <div>
-                  <Typography variant="title">Войти<Link to="/profile">Профиль</Link></Typography>
-                </div>
-              </div>
-            </div>
-          </Container>
+          <Map />
+          // <Container fixed>
+          //   <div className='grid'>
+          //     <div>
+          //       <Logo />
+          //     </div>
+          //     <div>
+          //       <div>
+          //         <Typography variant="title">Войти<Link to="/profile">Профиль</Link></Typography>
+          //       </div>
+          //     </div>
+          //   </div>
+          // </Container>
         ) : (
             <Container fixed>
               <div className='grid'>
@@ -45,7 +47,7 @@ export class Login extends React.Component {
                     <Typography variant="body1">Новый пользователь?<Link to="/registration" variant="inherit">Зарегистрируйтесь</Link></Typography>
                     <form className="form-div_inputs" onSubmit={this.authenticate}>
                       <label htmlFor="email"></label>
-                      <TextField normal fullWidth multiline style={{ marginBottom: 20 }} id="email" type="email" name="email" placeholder="Имя пользователя*" />
+                      <TextField normal fullWidth multiline id="email" type="email" name="email" placeholder="Имя пользователя*" />
                       <label htmlFor="password"></label>
                       <TextField fullWidth id="password" type="password" name="password" placeholder="Пароль*" />
                       <Button variant="contained" type="submit">Войти</Button>

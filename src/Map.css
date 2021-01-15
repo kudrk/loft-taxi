@@ -11,3 +11,11 @@
   left: 0;
   bottom: 0;
 }
+
+.paper {
+  z-index: 111;
+  position: fixed;
+  top: 50%;
+  left: 1%;
+  text-align: center;
+}
