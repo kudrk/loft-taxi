@@ -2,16 +2,18 @@ import React, { Component } from "react";
 import mapboxgl from 'mapbox-gl';
 import "./Map.css";
 import "./Profile.css";
-import { Menu } from "./Menu";
+import { Menu } from "../components/Menu";
 import { Logo, MCIcon } from 'loft-taxi-mui-theme';
-import { Paper, Box, Button, Typography, TextField, Container, Card, CardContent } from '@material-ui/core';
-import { Link } from "react-router-dom";
+import { MapComponent } from '../components/MapComponent'
+import { getCard } from "../actions";
+import { connect } from 'react-redux';
 
 export class Map extends Component {
   map = null;
   mapContainer = React.createRef();
 
   componentDidMount() {
+    this.props.getCard(this.props.token);
     mapboxgl.accessToken =
       'pk.eyJ1Ijoia3VkcmsiLCJhIjoiY2tqNGw2a2NuMGxtMjMybm9pMnk2MmE3ciJ9.DJzxJ1oxvNJoxcFqIid4Gw';
 
@@ -34,20 +36,17 @@ export class Map extends Component {
           <Logo />
           <Menu />
         </header>
-        <div className="map-wrapper">
-          <div data-testid="map" className="map" ref={this.mapContainer} />
-          <div className="paper">
-            <Card>
-              <CardContent>
-                <Typography variant="h4" component="h2">Заполните платежные данные</Typography>
-                <Typography variant="body1" component="p">Укажите информацию о банковской карте, чтобы сделать заказ.</Typography>
-                <Button variant="contained"><Link to="/profile">Перейти в профиль</Link></Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div >
+        <MapComponent />
       </>
     );
   }
 }
 
+const mapStateToProps = (state) => {
+  return { paymentData: state.payment.paymentData, token: state.payment.token }
+}
+
+export const MapWithConnect = connect(
+  mapStateToProps,
+  { getCard }
+)(Map);

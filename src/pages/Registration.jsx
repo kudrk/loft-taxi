@@ -2,9 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Paper, Box, Button, Typography, TextField, Container } from '@material-ui/core';
 import { Logo, MCIcon } from 'loft-taxi-mui-theme';
-import './Login.css'
+import './Login.css';
+import { connect } from "react-redux";
+import { registrSuccess } from '../actions'
 
 export class Registration extends React.Component {
+
+  reguser = (event) => {
+    event.preventDefault();
+    this.props.registrSuccess(event.target.email.value, event.target.password.value, event.target.name.value, event.target.surname.value);
+  }
+
 
   render() {
     return (
@@ -17,7 +25,7 @@ export class Registration extends React.Component {
             <div className="form-div">
               <Typography variant="h4">Регистрация</Typography>
               <Typography variant="body1">Уже зарегистрированы?<Link to="/profile" variant="inherit">Войти</Link></Typography>
-              <form className="form-div_inputs">
+              <form className="form-div_inputs" onSubmit={this.reguser}>
                 <label htmlFor="email"></label>
                 <TextField normal fullWidth multiline id="email" type="email" name="email" placeholder="Адрес электронной почты" />
 
@@ -39,3 +47,12 @@ export class Registration extends React.Component {
     );
   }
 };
+
+const regStateToProps = (state) => {
+  return { registrationData: state.registration.isRegistrated, token: state.registration.token }
+}
+
+export const RegistrationWithConnect = connect(
+  regStateToProps,
+  { registrSuccess }
+)(Registration);
