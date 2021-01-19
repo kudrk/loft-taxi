@@ -1,12 +1,12 @@
 import React from "react";
 import { Button, Typography, Card, CardContent, FormControl, InputLabel, Select } from '@material-ui/core';
 import { Link } from "react-router-dom";
+import "../pages/Map.css";
 
 export class MapComponent extends React.Component {
   render() {
     return (
-      <div className="map-wrapper">
-        <div data-testid="map" className="map" ref={this.mapContainer} />
+      <>
         <div className="paper">
           <Card>
             <CardContent>
@@ -41,7 +41,7 @@ export class MapComponent extends React.Component {
             </CardContent>
           </Card>
         </div>
-      </div>
+      </>
     )
   }
 }

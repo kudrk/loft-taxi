@@ -4,13 +4,13 @@ import { Paper, Box, Button, Typography, TextField, Container } from '@material-
 import { Logo, MCIcon } from 'loft-taxi-mui-theme';
 import './Login.css';
 import { connect } from "react-redux";
-import { registrSuccess } from '../actions'
+import { registr } from '../actions'
 
 export class Registration extends React.Component {
 
   reguser = (event) => {
     event.preventDefault();
-    this.props.registrSuccess(event.target.email.value, event.target.password.value, event.target.name.value, event.target.surname.value);
+    this.props.registr(event.target.email.value, event.target.password.value, event.target.name.value, event.target.surname.value);
   }
 
 
@@ -54,5 +54,5 @@ const regStateToProps = (state) => {
 
 export const RegistrationWithConnect = connect(
   regStateToProps,
-  { registrSuccess }
+  { registr }
 )(Registration);

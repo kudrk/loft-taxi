@@ -1,13 +1,14 @@
 import { takeEvery, call, put } from "redux-saga/effects";
-import { REGISTRATED, registr } from "../actions";
+import { REGISTRATED, registr, registrSuccess } from "../actions";
 import { serverReg } from "../api";
 
 
 export function* registrSaga(action) {
-  const { token } = action.payload;
-  const data = yield call(serverReg, token);
+  const { email, password, name, surname } = action.payload;
+  const data = yield call(serverReg, { email, password, name, surname });
+  console.log(data);
   if (data.success) {
-    yield put(registr(data));
+    yield put(registrSuccess(data));
   }
 }
 
