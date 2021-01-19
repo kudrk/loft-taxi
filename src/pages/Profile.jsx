@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { Menu } from '../components/Menu';
 import './Profile.css';
 import { Logo, MCIcon } from 'loft-taxi-mui-theme';
-import { Paper, Box, Button, Typography, TextField, Container, Card, CardContent, Grid, Input } from '@material-ui/core';
-import { carddata } from "../actions";
+import { Paper, Button, Typography, Card, CardContent, Grid, Input } from '@material-ui/core';
+import { saveCardData } from "../actions";
 
 
 export class Profile extends Component {
@@ -15,7 +15,7 @@ export class Profile extends Component {
   };
   savecard = (event) => {
     event.preventDefault();
-    this.props.carddata(event.target.cardnumber.value, event.target.carddate.value, event.target.cardusername.value, event.target.cvc.value);
+    this.props.saveCardData(event.target.cardnumber.value, event.target.carddate.value, event.target.cardusername.value, event.target.cvc.value);
   }
 
   render() {
@@ -54,13 +54,12 @@ export class Profile extends Component {
                       </Card>
                     </Grid>
                   </Grid>
-                  <Button variant="contained">Сохранить</Button>
+                  <Button variant="contained" type="submit">Сохранить</Button>
                 </CardContent>
               </form>
             </Card>
           </Paper>
-
-        </div>          <div className="destination">Маршрут</div>
+        </div>
       </>
     );
   }
@@ -68,5 +67,5 @@ export class Profile extends Component {
 
 export const ProfileWithConnect = connect(
   null,
-  { logIn, logOut, carddata }
+  { logIn, logOut, saveCardData }
 )(Profile);

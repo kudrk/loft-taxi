@@ -1,16 +1,17 @@
-import { PAYMENTDATA_YES, PAYMENTDATA_NO } from "../actions";
+import { SAVECARDDATA, GETCARDSUCCESS } from "../actions";
 
 const initialState = {
-  paymentData: false
+  cardData: false,
+  token: ""
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case PAYMENTDATA_YES: {
-      return { paymentData: true }
+    case SAVECARDDATA: {
+      return { cardData: true, token: action.payload.token }
     }
-    case PAYMENTDATA_NO: {
-      return { paymentData: false }
+    case GETCARDSUCCESS: {
+      return { cardData: false, token: "" }
     }
     default:
       return state;

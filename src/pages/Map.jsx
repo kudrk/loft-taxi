@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import "./Map.css";
 import "./Profile.css";
 import { Menu } from "../components/Menu";
-import { Logo, MCIcon } from 'loft-taxi-mui-theme';
+import { Logo } from 'loft-taxi-mui-theme';
 import { MapComponent } from '../components/MapComponent'
-import { getCard } from "../actions";
+import { saveCardData } from "../actions";
 import { connect } from 'react-redux';
 import { MapBox } from '../components/MapBox'
 
@@ -36,5 +36,5 @@ const mapStateToProps = (state) => {
 
 export const MapWithConnect = connect(
   mapStateToProps,
-  { getCard }
+  { saveCardData }
 )(Map);

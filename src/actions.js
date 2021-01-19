@@ -13,19 +13,15 @@ export const authenticate = (email, password) => ({
   payload: { email, password },
 });
 
-// Платежные данные
-export const PAYMENTDATA_YES = 'PAYMENTDATA_YES';
-export const PAYMENTDATA_NO = 'PAYMENTDATA_NO';
+//Платежные данные
 export const SAVECARDDATA = 'SAVECARDDATA';
-export const GETCARD = 'GETCARD';
+export const GETCARDSUCCESS = 'GETCARDSUCCESS';
 
-export const payYes = () => ({ type: PAYMENTDATA_YES });
-export const payNo = () => ({ type: PAYMENTDATA_NO });
-export const carddata = (cardnumber, cardndate, cardusername, cvc) => ({
+export const saveCardData = (cardNumber, expiryDate, cardName, cvc) => ({
   type: SAVECARDDATA,
-  payload: { cardnumber, cardndate, cardusername, cvc },
+  payload: { cardNumber, expiryDate, cardName, cvc },
 });
-export const getCard = () => ({ type: GETCARD })
+export const getCardSuccess = () => ({ type: GETCARDSUCCESS })
 
 //Регистрация
 export const REGISTRATED = 'REGISTRATED';

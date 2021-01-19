@@ -2,8 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { authenticate } from '../actions';
-import { Paper, Box, Button, Typography, TextField, Container } from '@material-ui/core';
-import { Logo, MCIcon } from 'loft-taxi-mui-theme';
+import { Button, Typography, TextField, Container } from '@material-ui/core';
+import { Logo } from 'loft-taxi-mui-theme';
 import './Login.css';
 import { Map } from './Map';
 
@@ -18,7 +18,6 @@ export class Login extends React.Component {
 
 
   render() {
-
     return (
       <>
         {this.props.isLoggedIn ? (

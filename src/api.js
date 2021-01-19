@@ -9,10 +9,15 @@ export const serverLogIn = async (email, password) => {
   }).then(res => res.json());
 };
 
-export const serverGetCard = async (token) => {
+export const serverCard = async (data) => {
   return fetch(
-    `https://loft-taxi.glitch.me/card?token=${token}`
-  ).then(res => res.json());
+    `https://loft-taxi.glitch.me/card`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    },
+    body: JSON.stringify(data)
+  }).then(res => res.json());
 };
 
 export const serverReg = async (data) => {

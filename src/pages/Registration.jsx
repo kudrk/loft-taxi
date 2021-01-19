@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Paper, Box, Button, Typography, TextField, Container } from '@material-ui/core';
-import { Logo, MCIcon } from 'loft-taxi-mui-theme';
+import { Button, Typography, TextField, Container } from '@material-ui/core';
+import { Logo } from 'loft-taxi-mui-theme';
 import './Login.css';
 import { connect } from "react-redux";
 import { registr } from '../actions'
