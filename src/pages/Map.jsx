@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Map.css";
 import "./Profile.css";
-import { Menu } from "../components/Menu";
+import { MenuWithConnect } from "../components/Menu";
 import { Logo } from 'loft-taxi-mui-theme';
 import { MapComponent } from '../components/MapComponent'
 import { getCard } from "../actions";
@@ -18,7 +18,7 @@ class Map extends Component {
       <>
         <header className="header">
           <Logo />
-          <Menu />
+          <MenuWithConnect />
         </header>
         <MapBox />
         <MapComponent />

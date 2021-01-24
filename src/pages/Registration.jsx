@@ -13,7 +13,6 @@ export class Registration extends React.Component {
     this.props.registr(event.target.email.value, event.target.password.value, event.target.name.value, event.target.surname.value);
   }
 
-
   render() {
     return (
       <Container fixed>

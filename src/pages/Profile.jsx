@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { logIn, logOut } from '../actions';
 import { connect } from 'react-redux';
-import { Menu } from '../components/Menu';
+import { MenuWithConnect } from '../components/Menu';
 import './Profile.css';
 import { Logo, MCIcon } from 'loft-taxi-mui-theme';
 import { Paper, Button, Typography, Card, CardContent, Grid, Input } from '@material-ui/core';
@@ -9,10 +9,7 @@ import { saveCard } from "../actions";
 
 
 export class Profile extends Component {
-  unauthenticate = (event) => {
-    event.preventDefault();
-    this.props.logOut();
-  };
+  
   savecard = (event) => {
     event.preventDefault();
     const { cardnumber, carddate, cardusername, cvc } = event.target;
@@ -24,7 +21,7 @@ export class Profile extends Component {
       <>
         <header className="header">
           <Logo />
-          <Menu />
+          <MenuWithConnect />
         </header>
 
         <div className="card">
