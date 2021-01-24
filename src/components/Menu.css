@@ -1,0 +1,12 @@
+a {
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  list-style-type: none;
+}
+
+.menu_link {
+  margin-right: 40px;
+}
