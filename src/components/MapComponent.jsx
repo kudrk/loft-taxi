@@ -2,12 +2,34 @@ import React from "react";
 import { Button, Typography, Card, CardContent, FormControl, InputLabel, Select } from '@material-ui/core';
 import { Link } from "react-router-dom";
 import "../pages/Map.css";
+import { connect } from "react-redux";
 
-export class MapComponent extends React.Component {
-  render() {
-    return (
-      <>
-        {this.props.cardData ? (
+const Map = ({ cardData }) => {
+  return (
+    <>
+      {cardData ? (
+        <div div className="destination">
+          <Card>
+            <CardContent>
+              <FormControl>
+                <InputLabel htmlFor="age-native-simple">Откуда</InputLabel>
+                <Select>
+                  <option aria-label="None" value="" />
+                  <option value={10}>Ten</option>
+                  <option value={20}>Twenty</option>
+                  <option value={30}>Thirty</option>
+                </Select>
+              </FormControl>
+              <FormControl>
+                <InputLabel htmlFor="age-native-simple">Куда</InputLabel>
+                <Select>
+                  <option aria-label="None" value="" />
+                  <option value={10}>Ten</option>
+                </Select>
+              </FormControl>
+            </CardContent>
+          </Card>
+        </div>) : (
           <div className="paper">
             <Card>
               <CardContent>
@@ -17,31 +39,11 @@ export class MapComponent extends React.Component {
               </CardContent>
             </Card>
           </div>
-        ) : (
-            <div div className="destination">
-              <Card>
-                <CardContent>
-                  <FormControl>
-                    <InputLabel htmlFor="age-native-simple">Откуда</InputLabel>
-                    <Select>
-                      <option aria-label="None" value="" />
-                      <option value={10}>Ten</option>
-                      <option value={20}>Twenty</option>
-                      <option value={30}>Thirty</option>
-                    </Select>
-                  </FormControl>
-                  <FormControl>
-                    <InputLabel htmlFor="age-native-simple">Куда</InputLabel>
-                    <Select>
-                      <option aria-label="None" value="" />
-                      <option value={10}>Ten</option>
-                    </Select>
-                  </FormControl>
-                </CardContent>
-              </Card>
-            </div>
-          )}
-      </>
-    );
-  }
+        )}
+    </>
+  );
 }
+
+export const MapComponent = connect(
+  state => ({cardData: state.payment.cardData}),
+)(Map);

@@ -5,7 +5,7 @@ import { Menu } from '../components/Menu';
 import './Profile.css';
 import { Logo, MCIcon } from 'loft-taxi-mui-theme';
 import { Paper, Button, Typography, Card, CardContent, Grid, Input } from '@material-ui/core';
-import { saveCardData } from "../actions";
+import { saveCard } from "../actions";
 
 
 export class Profile extends Component {
@@ -15,7 +15,8 @@ export class Profile extends Component {
   };
   savecard = (event) => {
     event.preventDefault();
-    this.props.saveCardData(event.target.cardnumber.value, event.target.carddate.value, event.target.cardusername.value, event.target.cvc.value);
+    const { cardnumber, carddate, cardusername, cvc } = event.target;
+    this.props.saveCard(cardnumber.value, carddate.value, cardusername.value, cvc.value, this.props.token);
   }
 
   render() {
@@ -66,6 +67,6 @@ export class Profile extends Component {
 }
 
 export const ProfileWithConnect = connect(
-  null,
-  { logIn, logOut, saveCardData }
+  (state) => ({ token: state.auth.token }),
+  { logIn, logOut, saveCard }
 )(Profile);

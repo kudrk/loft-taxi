@@ -2,15 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Menu.css";
 
+
 export class Menu extends React.Component {
 
   render() {
     return (
       <nav>
         <ul className="menu">
-          <li className="menu_link">
-            <Link to='/'>Login</Link>
-          </li>
           <li className="menu_link">
             <Link to='/registration'>Registration</Link>
           </li>

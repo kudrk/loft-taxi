@@ -14,14 +14,20 @@ export const authenticate = (email, password) => ({
 });
 
 //Платежные данные
-export const SAVECARDDATA = 'SAVECARDDATA';
-export const GETCARDSUCCESS = 'GETCARDSUCCESS';
+export const SAVE_CARD = 'SAVE_CARD';
+export const SAVE_CARD_SUCCESS = 'SAVE_CARD_SUCCESS';
+export const GET_CARD = 'GET_CARD';
+export const GET_CARD_SUCCESS = 'GET_CARD_SUCCESS';
 
-export const saveCardData = (cardNumber, expiryDate, cardName, cvc) => ({
-  type: SAVECARDDATA,
-  payload: { cardNumber, expiryDate, cardName, cvc },
+export const saveCard = (cardNumber, expiryDate, cardName, cvc, token) => ({
+  type: SAVE_CARD,
+  payload: { cardNumber, expiryDate, cardName, cvc, token },
 });
-export const getCardSuccess = () => ({ type: GETCARDSUCCESS })
+export const saveCardSuccess = () => ({
+  type: SAVE_CARD_SUCCESS,
+});
+export const getCard = (token) => ({ type: GET_CARD, payload: { token } })
+export const getCardSuccess = () => ({ type: GET_CARD_SUCCESS })
 
 //Регистрация
 export const REGISTRATED = 'REGISTRATED';

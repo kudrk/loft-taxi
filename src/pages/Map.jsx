@@ -4,16 +4,13 @@ import "./Profile.css";
 import { Menu } from "../components/Menu";
 import { Logo } from 'loft-taxi-mui-theme';
 import { MapComponent } from '../components/MapComponent'
-import { saveCardData } from "../actions";
+import { getCard } from "../actions";
 import { connect } from 'react-redux';
 import { MapBox } from '../components/MapBox'
 
-export class Map extends Component {
-
+class Map extends Component {
   componentDidMount() {
-    if (this.props.getCard) {
-      this.props.getCard(this.props.token)
-    }
+    this.props.getCard(this.props.token)
   }
 
   render() {
@@ -36,5 +33,5 @@ const mapStateToProps = (state) => {
 
 export const MapWithConnect = connect(
   mapStateToProps,
-  { saveCardData }
+  { getCard }
 )(Map);
