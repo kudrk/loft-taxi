@@ -3,30 +3,37 @@ import { Button, Typography, Card, CardContent, FormControl, InputLabel, Select 
 import { Link } from "react-router-dom";
 import "../pages/Map.css";
 import { connect } from "react-redux";
+import "./MapComponent.css";
+
 
 const Map = ({ cardData }) => {
   return (
     <>
       {cardData ? (
-        <div div className="destination">
+        <div className="destination">
           <Card>
-            <CardContent>
+            <CardContent className='destination__form'>
               <FormControl>
                 <InputLabel htmlFor="age-native-simple">Откуда</InputLabel>
-                <Select>
+                <Select className="select">
                   <option aria-label="None" value="" />
-                  <option value={10}>Ten</option>
-                  <option value={20}>Twenty</option>
-                  <option value={30}>Thirty</option>
+                  <option value={10}>Пулково (LED)</option>
+                  <option value={20}>Эрмитаж</option>
+                  <option value={30}>Кинотеатр Аврора</option>
+                  <option value={40}> Мариинский театр</option>
                 </Select>
               </FormControl>
               <FormControl>
                 <InputLabel htmlFor="age-native-simple">Куда</InputLabel>
-                <Select>
+                <Select className="select">
                   <option aria-label="None" value="" />
-                  <option value={10}>Ten</option>
+                  <option value={10}>Пулково (LED)</option>
+                  <option value={20}>Эрмитаж</option>
+                  <option value={30}>Кинотеатр Аврора</option>
+                  <option value={40}> Мариинский театр</option>
                 </Select>
               </FormControl>
+              <Button variant="contained" type="submit">Вызвать такси</Button>
             </CardContent>
           </Card>
         </div>) : (

@@ -1,15 +1,15 @@
 //получение списка адресов
 
 import { takeEvery, call, put } from "redux-saga/effects";
-import { ADRESSLIST } from "../actions";
-import { serverAdressList } from "../api";
+import { ADRESSLIST, getAdressList } from "../actions";
+import { serverGetAdressList } from "../api";
 
 
 export function* adressSaga(action) {
-  const { email, password } = action.payload;
-  const data = yield call(serverLogIn, email, password);
+  const { address1, address2 } = action.payload;
+  const data = yield call(serverGetAdressList, address1, address2);
   if (data.success) {
-    yield put(logIn(data));
+    yield put(getAdressList(data));
   }
 }
 

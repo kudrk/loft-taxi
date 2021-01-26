@@ -1,6 +1,4 @@
-//сага для получения маршрута
-
-import { ADRESS_1, ADRESS_2 } from '../actions';
+import { ADRESSLIST } from '../actions';
 
 
 const initialState = {

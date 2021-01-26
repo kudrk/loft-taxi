@@ -23,6 +23,6 @@
 .destination {
   z-index: 111;
   position: fixed;
-  top: 80%;
+  top: 50%;
   left: 1%;
 }
