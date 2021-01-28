@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Typography, Card, CardContent, FormControl, InputLabel, Select } from '@material-ui/core';
 import { Link } from "react-router-dom";
 import "../pages/Map.css";
 import { connect } from "react-redux";
 import "./MapComponent.css";
+import { getAdressList } from "../actions";
 
 
-const Map = ({ cardData }) => {
+
+const Map = ({ cardData, adressList, getAdressList }) => {
+
+  useEffect(() => { getAdressList() }, [])
   return (
     <>
       {cardData ? (
@@ -52,5 +56,6 @@ const Map = ({ cardData }) => {
 }
 
 export const MapComponent = connect(
-  state => ({cardData: state.payment.cardData}),
-)(Map);
+  state => ({ cardData: state.payment.cardData, adressList: state.adress.list }),
+  { getAdressList })
+  (Map);

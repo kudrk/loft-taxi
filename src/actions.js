@@ -5,7 +5,7 @@ export const AUTHENTICATE = "AUTHENTICATE";
 
 export const logIn = (payload) => ({
   type: LOG_IN,
-  payload
+  payload: { success: payload.success, token: payload.token }
 });
 export const logOut = () => ({ type: LOG_OUT });
 export const authenticate = (email, password) => ({
@@ -44,18 +44,23 @@ export const registr = (email, password, name, surname) => ({
 //Список адресов
 
 export const ADRESSLIST = 'ADRESSLIST';
-export const ADRESS_1 = 'ADRESS_1';
-export const ADRESS_2 = 'ADRESS_2';
+export const ADRESSLISTSUCCESS = 'ADRESSLISTSUCCESS';
 
-export const getAdressList = (token) => ({
-  type: ADRESSLIST,
-  payload: { token }
+export const getAdressList = () => ({
+  type: ADRESSLIST
+})
+
+export const getAdressListSuccess = (list) => ({
+  type: ADRESSLISTSUCCESS,
+  payload: list
 })
 
 
 
 //Получение маршрута
 export const ROUTE = 'ROUTE';
+
+
 export const route = (address1, address2) => ({
   type: ROUTE,
   payload: { address1, address2 },

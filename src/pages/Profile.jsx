@@ -9,7 +9,7 @@ import { saveCard } from "../actions";
 
 
 export class Profile extends Component {
-  
+
   savecard = (event) => {
     event.preventDefault();
     const { cardnumber, carddate, cardusername, cvc } = event.target;
@@ -38,7 +38,7 @@ export class Profile extends Component {
                           <div className="icon">
                             <MCIcon />
                           </div>
-                          <Input fullWidth name="cardnumber" placeholder="Номер карты*"></Input>
+                          <Input fullWidth name="cardnumber" placeholder="Номер карты*" value='cardnumber'></Input>
                           <Input fullWidth name="carddate" defaultValue="01/21"></Input>
                         </CardContent>
                       </Card>

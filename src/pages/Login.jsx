@@ -42,7 +42,12 @@ const Login = ({ authenticate, isLoggedIn }) => {
   )
 }
 
+const mapStateToProps = (state) => {
+ return { isLoggedIn: state.auth.isLoggedIn }
+};
+
+
 export const LoginWithConnect = connect(
-  (state) => ({ isLoggedIn: state.auth.isLoggedIn }),
+  mapStateToProps,
   { authenticate }
 )(Login);

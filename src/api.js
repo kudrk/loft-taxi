@@ -35,9 +35,9 @@ export const serverReg = async (data) => {
   }).then(res => res.json());
 };
 
-export const serverGetAdressList = async (token) => {
+export const serverGetAdressList = async () => {
   return fetch(
-    ` https://loft-taxi.glitch.me/addressList?token=${token}`
+    `https://loft-taxi.glitch.me/addressList`
   ).then(res => res.json());
 };
 
