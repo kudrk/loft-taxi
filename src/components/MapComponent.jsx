@@ -10,7 +10,10 @@ import { getAdressList } from "../actions";
 
 const Map = ({ cardData, adressList, getAdressList }) => {
 
-  useEffect(() => { getAdressList() }, [])
+  useEffect(() => { getAdressList() }, []);
+  const adressItems = adressList.map((Item) => <option>{Item}</option>);
+
+
   return (
     <>
       {cardData ? (
@@ -19,22 +22,14 @@ const Map = ({ cardData, adressList, getAdressList }) => {
             <CardContent className='destination__form'>
               <FormControl>
                 <InputLabel htmlFor="age-native-simple">Откуда</InputLabel>
-                <Select className="select">
-                  <option aria-label="None" value="" />
-                  <option value={10}>Пулково (LED)</option>
-                  <option value={20}>Эрмитаж</option>
-                  <option value={30}>Кинотеатр Аврора</option>
-                  <option value={40}> Мариинский театр</option>
+                <Select>
+                  {adressItems}
                 </Select>
               </FormControl>
               <FormControl>
                 <InputLabel htmlFor="age-native-simple">Куда</InputLabel>
                 <Select className="select">
-                  <option aria-label="None" value="" />
-                  <option value={10}>Пулково (LED)</option>
-                  <option value={20}>Эрмитаж</option>
-                  <option value={30}>Кинотеатр Аврора</option>
-                  <option value={40}> Мариинский театр</option>
+                  {adressItems}
                 </Select>
               </FormControl>
               <Button variant="contained" type="submit">Вызвать такси</Button>

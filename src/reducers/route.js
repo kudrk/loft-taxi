@@ -1,18 +1,14 @@
-import { ADRESSLIST } from '../actions';
+import { ROUTESUCCESS } from '../actions';
 
 
 const initialState = {
-  isRoute: false,
-  token: ""
+  isRoute: false
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case ADRESS_1: {
-      return { isRoute: true, token: action.payload.token }
-    }
-    case ADRESS_2: {
-      return { isRoute: true, token: "" }
+    case ROUTESUCCESS: {
+      return { isRoute: true, route: action.payload }
     }
     default:
       return state;

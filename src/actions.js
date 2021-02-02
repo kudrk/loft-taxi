@@ -55,13 +55,15 @@ export const getAdressListSuccess = (list) => ({
   payload: list
 })
 
-
-
 //Получение маршрута
 export const ROUTE = 'ROUTE';
+export const ROUTESUCCESS = 'ROUTESUCCESS'
 
+export const route = () => ({
+  type: ROUTE
+});
 
-export const route = (address1, address2) => ({
-  type: ROUTE,
-  payload: { address1, address2 },
+export const routeSuccess = (address1, address2) => ({
+  type: ROUTESUCCESS,
+  payload: { address1, address2 }
 });
