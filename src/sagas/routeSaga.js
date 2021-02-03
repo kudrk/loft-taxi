@@ -8,7 +8,7 @@ import { serverRoute } from "../api";
 export function* rSaga(action) {
   const { address1, address2 } = action.payload;
   const data = yield call(serverRoute, { address1, address2 });
-  if (data.success) {
+  if (data.length > 0) {
     yield put(routeSuccess(data));
   }
 }

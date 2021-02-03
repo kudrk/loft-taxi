@@ -27,8 +27,9 @@ export const saveCardSuccess = () => ({
   type: SAVE_CARD_SUCCESS,
 });
 export const getCard = (token) => ({ type: GET_CARD, payload: { token } })
-export const getCardSuccess = () => ({
-  type: GET_CARD_SUCCESS
+export const getCardSuccess = (data) => ({
+  type: GET_CARD_SUCCESS,
+  payload: data
 })
 
 //Регистрация
@@ -59,11 +60,12 @@ export const getAdressListSuccess = (list) => ({
 export const ROUTE = 'ROUTE';
 export const ROUTESUCCESS = 'ROUTESUCCESS'
 
-export const route = () => ({
-  type: ROUTE
+export const getRoute = (address1, address2) => ({
+  type: ROUTE,
+  payload: { address1, address2 }
 });
 
-export const routeSuccess = (address1, address2) => ({
+export const routeSuccess = (coords) => ({
   type: ROUTESUCCESS,
-  payload: { address1, address2 }
+  payload: coords
 });

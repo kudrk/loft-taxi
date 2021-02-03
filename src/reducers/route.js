@@ -2,7 +2,8 @@ import { ROUTESUCCESS } from '../actions';
 
 
 const initialState = {
-  isRoute: false
+  isRoute: false,
+  route: []
 };
 
 export default function (state = initialState, action) {

@@ -9,10 +9,10 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case REGISTRATED: {
-      return { isRegistrated: true, token: action.payload.token }
+      return { isRegistrated: false, token: "" }
     }
     case REGISTRATE_SUCCESS: {
-      return { isRegistrated: false, token: "" }
+      return { isRegistrated: true, token: action.payload.token }
     }
     default:
       return state;
