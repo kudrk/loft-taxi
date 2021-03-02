@@ -8,7 +8,7 @@ import { getAdressList, getRoute } from "../actions";
 
 
 
-const Map = ({ cardData, adressList, getAdressList, getRoute }) => {
+const MapForm = ({ cardData, adressList, getAdressList, getRoute }) => {
 
   useEffect(() => { getAdressList() }, []);
 
@@ -33,7 +33,6 @@ const Map = ({ cardData, adressList, getAdressList, getRoute }) => {
                 <InputLabel htmlFor="age-native-simple">Куда</InputLabel>
                 <Select className="select" onChange={(event) => {
                   changeadress2(event.target.value)
-                  console.log(event.target.value)
                 }}>
                   {adressList.filter((item) => { return item !== adress1 }).map((Item) => <option value={Item}>{Item}</option>)}
                 </Select>
@@ -56,7 +55,7 @@ const Map = ({ cardData, adressList, getAdressList, getRoute }) => {
   );
 }
 
-export const MapComponent = connect(
+export const MapFormComponent = connect(
   state => ({ cardData: state.payment.cardData, adressList: state.adress.list }),
   { getAdressList, getRoute })
-  (Map);
+  (MapForm);

@@ -38,8 +38,8 @@ export class Profile extends Component {
                           <div className="icon">
                             <MCIcon />
                           </div>
-                          <Input fullWidth name="cardnumber" placeholder="Номер карты*" value='cardnumber'></Input>
-                          <Input fullWidth name="carddate" defaultValue="01/21"></Input>
+                          <Input fullWidth name="cardnumber" placeholder="Номер карты*" ></Input>
+                          <Input fullWidth name="carddate" ></Input>
                         </CardContent>
                       </Card>
                     </Grid>

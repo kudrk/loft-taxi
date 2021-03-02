@@ -16,7 +16,7 @@ export default function (state = initialState, action) {
       return { cardData: false }
     }
     case GET_CARD_SUCCESS: {
-      return { cardData: true }
+      return { cardData: true, data: action.payload }
     }
     default:
       return state;

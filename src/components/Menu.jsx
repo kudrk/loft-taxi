@@ -17,16 +17,13 @@ export class Menu extends React.Component {
       <nav>
         <ul className="menu">
           <li className="menu_link">
-            <Link to='/registration'>Registration</Link>
-          </li>
-          <li className="menu_link">
             <Link to="/map">Map</Link>
           </li>
           <li className="menu_link">
             <Link to="/profile">Profile</Link>
           </li>
           <li className="menu_link">
-            <Link onClick={this.unauthenticate}>LogOut</Link> 
+            <Link onClick={this.unauthenticate}>LogOut</Link>
           </li>
         </ul>
       </nav>
