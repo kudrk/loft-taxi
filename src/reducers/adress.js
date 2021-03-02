@@ -1,20 +1,16 @@
-import { ADRESSLIST } from '../actions';
+import { ADRESSLISTSUCCESS } from '../actions';
 
 
-// const initialState = {
-//   isLoggedIn: false,
-//   token: ""
-// };
+const initialState = {
+  list: [],
+};
 
-// export default function (state = initialState, action) {
-//   switch (action.type) {
-//     case LOG_IN: {
-//       return { isLoggedIn: true, token: action.payload.token }
-//     }
-//     case LOG_OUT: {
-//       return { isLoggedIn: false, token: "" }
-//     }
-//     default:
-//       return state;
-//   }
-// }
+export default function (state = initialState, action) {
+  switch (action.type) {
+    case ADRESSLISTSUCCESS: {
+      return { list: action.payload }
+    }
+    default:
+      return state;
+  }
+}

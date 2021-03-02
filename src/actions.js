@@ -5,7 +5,7 @@ export const AUTHENTICATE = "AUTHENTICATE";
 
 export const logIn = (payload) => ({
   type: LOG_IN,
-  payload
+  payload: { success: payload.success, token: payload.token }
 });
 export const logOut = () => ({ type: LOG_OUT });
 export const authenticate = (email, password) => ({
@@ -27,7 +27,10 @@ export const saveCardSuccess = () => ({
   type: SAVE_CARD_SUCCESS,
 });
 export const getCard = (token) => ({ type: GET_CARD, payload: { token } })
-export const getCardSuccess = () => ({ type: GET_CARD_SUCCESS })
+export const getCardSuccess = (data) => ({
+  type: GET_CARD_SUCCESS,
+  payload: data
+})
 
 //Регистрация
 export const REGISTRATED = 'REGISTRATED';
@@ -41,17 +44,28 @@ export const registr = (email, password, name, surname) => ({
 
 //Список адресов
 
-// export const addressList = () => ({
-//   type: ADRESSLIST,
-//   payload
-// })
+export const ADRESSLIST = 'ADRESSLIST';
+export const ADRESSLISTSUCCESS = 'ADRESSLISTSUCCESS';
 
+export const getAdressList = () => ({
+  type: ADRESSLIST
+})
 
-// //Получения маршрута
-// export const ADRESS_1 = 'ADRESS_1';
-// export const ADRESS_2 = 'ADRESS_2';
+export const getAdressListSuccess = (list) => ({
+  type: ADRESSLISTSUCCESS,
+  payload: list
+})
 
-// export const route = (address1, address2) => ({
-//   type: ROUTE,
-//   payload: { address1, address2 },
-// })
+//Получение маршрута
+export const ROUTE = 'ROUTE';
+export const ROUTESUCCESS = 'ROUTESUCCESS'
+
+export const getRoute = (address1, address2) => ({
+  type: ROUTE,
+  payload: { address1, address2 }
+});
+
+export const routeSuccess = (coords) => ({
+  type: ROUTESUCCESS,
+  payload: coords
+});

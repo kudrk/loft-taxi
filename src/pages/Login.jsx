@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { authenticate } from '../actions';
+import { authenticate, logIn } from '../actions';
 import { Button, Typography, TextField, Container } from '@material-ui/core';
 import { Logo } from 'loft-taxi-mui-theme';
 import './Login.css';
 import { useHistory } from "react-router-dom";
 
-const Login = ({ authenticate, isLoggedIn }) => {
+const Login = ({ authenticate, isLoggedIn, logIn }) => {
   const history = useHistory();
+  const token = localStorage.getItem('token');
+  useEffect(() => {
+    if (token) {
+      logIn({ token })
+    }
+  }, []);
   if (isLoggedIn) {
     history.push('/map')
   }
+
   const auth = (event) => {
     event.preventDefault();
     const { email, password } = event.target;
@@ -42,7 +49,12 @@ const Login = ({ authenticate, isLoggedIn }) => {
   )
 }
 
+const mapStateToProps = (state) => {
+  return { isLoggedIn: state.auth.isLoggedIn }
+};
+
+
 export const LoginWithConnect = connect(
-  (state) => ({ isLoggedIn: state.auth.isLoggedIn }),
-  { authenticate }
+  mapStateToProps,
+  { authenticate, logIn }
 )(Login);

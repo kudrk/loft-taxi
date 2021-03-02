@@ -3,7 +3,7 @@ import { LOG_IN, LOG_OUT } from '../actions';
 
 const initialState = {
   isLoggedIn: false,
-  token: ""
+  token: "",
 };
 
 export default function (state = initialState, action) {

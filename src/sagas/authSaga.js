@@ -7,6 +7,7 @@ export function* authenticateSaga(action) {
   const { email, password } = action.payload;
   const data = yield call(serverLogIn, email, password);
   if (data.success) {
+    localStorage.setItem('token', data.token);
     yield put(logIn(data));
   }
 }
